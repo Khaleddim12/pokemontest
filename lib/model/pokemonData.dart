@@ -33,15 +33,7 @@ class pokemonData {
         final Map<String, dynamic> decodedJson = jsonDecode(response.body);
         final List<dynamic> jsonList = decodedJson['data'];
         pokemons = jsonList.map((json) => pokemnModel.fromJson(json)).toList();
-        return jsonList
-            .map((json) => pokemnModel.fromJson(json))
-            .where((pokemon) {
-          final nameLower = pokemon.name.toLowerCase();
-          final artistLower = pokemon.artist.toString().toLowerCase();
-          final searchLower = query.toLowerCase();
-          return nameLower.contains(searchLower) ||
-              artistLower.contains(searchLower);
-        }).toList();
+        return jsonList.map((json) => pokemnModel.fromJson(json)).toList();
       } catch (e) {
         throw Exception(e.toString());
       }

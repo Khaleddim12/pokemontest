@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webview/model/pokemonModel.dart';
+import 'package:webview/screens/homeScreen.dart';
 
 class Details extends StatelessWidget {
   List<pokemnModel> pokemons;
@@ -11,6 +12,16 @@ class Details extends StatelessWidget {
       appBar: AppBar(
         title: Text("Details Page"),
         centerTitle: true,
+        leading: FlatButton(
+                child: Icon(
+                  Icons.arrow_left_sharp,
+                  color: Colors.white,
+                  size: 40.0,
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
+                },
+              ),
       ),
       body: Center(
         child: Column(
